@@ -12,7 +12,8 @@ RUN apt-get update && \
     apt-get install $APT_ARGS \
       ca-certificates \
       curl && \
-    curl -L --progress-bar https://www.chef.io/chef/install.sh | bash -s -- -P chefdk
+    curl https://packages.chef.io/files/stable/chefdk/1.5.0/debian/8/chefdk_1.5.0-1_amd64.deb && \
+    dpkg -i chefdk_1.5.0-1_amd64.deb 
 
 # Configure locales
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
